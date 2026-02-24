@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internal CSS</title>
+
+  <style>
+    body {
+      background-color: linen;
+      font-family: Arial, sans-serif;
+      margin-left: 40px;
+    }
+
+    h1 {
+      color: blue;
+      text-align: center;
+    }
+
+    p {
+      color: maroon;
+    }
+
+    /* A sample animated box */
+    #box {
+      background-color: tan;
+      height: 200px;
+      width: 100px;
+      text-align: center;
+      line-height: 200px;
+      color: white;
+      font-weight: bold;
+      animation: myMove 3s infinite alternate;
+    }
+
+    @keyframes myMove {
+      from { margin-left: 0; }
+      to { margin-left: 100px; }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Internal CSS</h1>
+  <p>
+    An internal style sheet may be used if one single HTML page has a unique style.
+    The internal style is defined inside the <code>&lt;style&gt;</code> element, within the head section.
+  </p>
+
+  <div id="box">Move Me</div>
+</body>
+</html>

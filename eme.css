@@ -1,0 +1,80 @@
+/* Reset and base styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f1a3b, #1b2b5f);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+}
+
+/* Page container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Page title (top left) */
+.page-title {
+  font-size: 1.8rem;
+  color: #ffcc66;
+  margin-bottom: 40px;
+}
+
+/* Card grid */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+/* Individual card */
+.card {
+  background: linear-gradient(145deg, #1c2c52, #18274a);
+  border-radius: 12px;
+  text-align: center;
+  padding: 50px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* Icon + title */
+.icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  color: #ffcc66;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  body {
+    padding: 40px 15px;
+  }
+  .page-title {
+    text-align: center;
+  }
+}
+h3 {
+	
+	text-decoration: none;
+	color: white;
+	
+}

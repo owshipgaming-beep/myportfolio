@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Quirino High School</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0;
+    background-color: lightmaroon;
+  }
+.header {
+  grid-area: header;
+  background-color: maroon;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 10px;
+  border: 10px solid white;
+}
+.header > h1 {
+  font-size: 40px;
+}
+  .container {
+    display: flex;
+    padding: 10px;
+  }
+  .sidebar {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .sidebar button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+	border: 4px solid white;
+	border-radius: 20px;
+  }
+  .sidebar button:hover {
+    background-color: brown;
+  }
+  .content {
+    flex-grow: 1;
+    padding: 0 20px;
+  }
+  .content h2 {
+    margin-top: 0;
+    font-weight: bold;
+  }
+.facts {
+  color: #ffffff;
+  grid-area: facts;
+  border: 4px solid white;
+  background-color: maroon;
+  padding: 10px;
+  border-radius: 20px;
+  }
+
+.facts > h2 {
+  font-size: 20px;
+}
+
+.facts li {
+  margin-bottom: 5px;
+}
+  footer {
+    background-color: maroon;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+    font-size: 0.9em;
+	border-radius: 20px;
+	margin: 20px;
+	border: 10px solid white;
+  }
+  
+  @media (min-width: 600px) {
+  .header {grid-area: 1 / span 6;}
+  .menu {grid-area: 2 / span 1;}
+  .content {grid-area: 2 / span 4;}
+  .facts {grid-area: 3 / span 6;}
+  .footer {grid-area: 4 / span 6;}
+}
+
+@media (min-width: 768px) {
+  .header {grid-area: 1 / span 6;}
+  .menu {grid-area: 2 / span 1;}
+  .content {grid-area: 2 / span 4;}
+  .facts {grid-area: 2 / span 1;}
+  .footer {grid-area: 3 / span 6;}	
+  
+  .pic1 {
+  position: absolute;
+  left: 600px;
+  top: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="header"><h1>Quirino High School</h1></div>
+
+<div class="container">
+  <div class="sidebar">
+    <button id="btnProgram">Program</button>
+    <button id="btnFacilities1">Facilities1</button>
+	<button id="btnFacilities2">Facilities2</button>
+    <button id="btnOrganization">Organization</button>
+    <button id="btnContact">Contact us</button>
+	<button id="btnAbout">About us</button>
+  </div>
+
+  <div class="content">
+    <h2 id="definition-title">Program</h2>
+    <p id="definition-text">
+      Chania is the capital of the Chānia region on the island of Crete.<br /><br />
+      The city can be divided in two parts, the old town and the modern city. The old town is situated next to the old harbour and is the matrix around which the whole urban area was developed.<br /><br />
+      Chania lies along the north west coast of the island Crete.
+    </p>
+  </div>
+
+  <div class="facts">
+    <h3>Facts:</h3>
+    <ul id="facts-list">
+      <li>Chania is a city on the island of Crete</li>
+      <li>Crete is a Greek island in the Mediterranean Sea</li>
+    </ul>
+  </div>
+</div>
+
+<div class="pic1">
+<img src="C:\Users\Linnaeus\Documents\Edmon O. Gutlay 11-Linnaeus\3ND QUARTER\qhs_logo.png" width="150" height="150">
+</div>
+
+<footer>
+  Edmon O. Gutlay  11-LINNAEUS
+</footer>
+
+<script>
+  const contentData = {
+    program: {
+      title: "Program",
+      definition:
+        "Quirino High School offers a variety of programs to cater to the diverse needs of its students. The school's special science program aims to increase students' understanding of science and promote scientific literacy and responsible citizenship. This program is designed to use science communication to enhance science-related knowledge among adults and guide students in pursuing science-related courses and careers in the future.",
+      facts: [
+        "For more detailed information about the courses and study programs at Quirino High School, including content, application requirements, and tuition fees, interested individuals can visit the Edukasyon.ph website.",
+      ]
+    },
+    facilities1: {
+      title: "Facilities1",
+      definition:
+        "TLE Building-This is the TLE Building, where engineering studies and electrical studies are taught, and where students who want to study TVL Courses are taught, and the TLE Department is also located here..\n Sped Building-Sped building, this is where students with illnesses or disabilities study, and the coop is also next to them.\n Senior Building-This is the Senior Building, this is where grades 11 to 12 study, the English department is also located here, currently my room 11-LINNAEUS is here.\n Science Building-This is the science building, where the science department is located and experiments take place in the science building.\n SB Building-SB Building, where grade 7 and the MAPEH department are housed\n Old Court-This is the old court, this is where those who try out sports train, and this is also where students perform.\n Mabini Building-This is the Mabini Building, where the grade 8 students are housed, and the math department is also housed there.\n Garden-This is the current garden of quirino high school, this is where students chill, relax, and study or do thier performance task's\n Function-Function Building, where students use the bathroom or wash their hands\n Erap Building-This is the Erap Building, this is where grade 10 students study, and the Filipino department is also located here.\n Dome-This place is where student's practice or sometimes the school uses dome for programs.\n Deped Building-Dep Ed Building. This is where grade 9 is placed in the school.",
+	  facts: [
+        "Quirino High School has 10 classroom buildings and 1 administrative building.",
+        "The school started with 200 students and four mentors in 1955 and became an independent institution in 1958"
+      ]
+    },
+	facilities2: {
+      title: "Facilities2",
+      definition:
+		"DelPilar Building-This is the del pilar building, grades 8 and 9 are located here.\n COOP Building-This is the TLE Building, where engineering studies and electrical studies are taught, and where students who want to study TVL Courses are taught, and the TLE Department is also located here.\n Clinic Building-This is the clinic building, where sick or injured people are sent to receive treatment.\n Canteen-This is the QHS canteen, where students buy various foods and also sell other items, such as school supplies and other items that can be used for education.\n Bistro Building-This is the Bistro building, where feeding programs take place.\n Admin Building-This is the admin building, this is where students can enroll and you can also find the library there if you want to read.",
+	  facts: [
+        "Quirino High School has 10 classroom buildings and 1 administrative building.",
+        "The school started with 200 students and four mentors in 1955 and became an independent institution in 1958"
+      ]
+    },
+    organization: {
+      title: "Organization",
+      definition:
+        "Crete is the largest and most populous of the Greek islands.\n\nIt is rich in history and culture, considered the birthplace of the Minoan civilization, one of the earliest in Europe.",
+      facts: [
+        "The current principal of Quirino High School is Dr. Levita U. Ramos,\n who serves as the School Principal IV. The school, located in Quezon City,\n has a rich history dating back to its establishment in 1955\n and currently has around 4,000 students under its care."
+      ]
+    },
+    contact: {
+      title: "Contact Information",
+      definition:
+        "Number:285087965\n	Gmail:hs.quirino@depedqc.ph\n Site:sites.google.com/depedqc.ph/qhs/home",
+      facts: [
+        "Olive oil is a key ingredient in Cretan cooking.",
+        "The cuisine is known for fresh vegetables and local cheeses."
+      ]
+	      },
+    about: {
+      title: "About Us",
+      definition:
+        "It was in 1955 when Quirino High School was established as an annex of Quezon City High School. There were 200 students and four mentors then.\nBy virtue of a Council Resolution, Quirino High School became an independent school in 1958.",
+      facts: [
+        "Established in 1955: Quirino High School was founded as an annex of Quezon City High School and became an independent institution in 1958.",
+        "Quirino General High School is known for its dedication to fostering academic excellence and holistic development, offering specialized programs and extending learning opportunities to adults."
+      ]
+    }
+  };
+  const titleEl = document.getElementById("definition-title");
+  const defEl = document.getElementById("definition-text");
+  const factsEl = document.getElementById("facts-list");
+
+  function nl2br(str) {
+    return str.replace(/\n/g, "<br /><br />");
+  }
+
+  function updateContent(section) {
+    const data = contentData[section];
+    titleEl.textContent = data.title;
+    defEl.innerHTML = nl2br(data.definition);
+
+    factsEl.innerHTML = "";
+
+    data.facts.forEach((fact) => {
+      const li = document.createElement("li");
+      li.textContent = fact;
+      factsEl.appendChild(li);
+    });
+  }
+
+  document.getElementById("btnProgram").addEventListener("click", () => updateContent("program"));
+  document.getElementById("btnFacilities1").addEventListener("click", () => updateContent("facilities1"));
+  document.getElementById("btnFacilities2").addEventListener("click", () => updateContent("facilities2"));
+  document.getElementById("btnOrganization").addEventListener("click", () => updateContent("organization"));
+  document.getElementById("btnContact").addEventListener("click", () => updateContent("contact"));
+  document.getElementById("btnAbout").addEventListener("click", () => updateContent("about"));
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Calculator</title>
+
+</head>
+<body>
+
+	<form id="myForm">
+	
+		<label> Enter your name: </label>
+		<input type="text" id="nameInput">
+		<button type="submit">Submit</button>
+		
+	
+	</form>
+	
+	<div id="result"> 
+
+	
+
+
+	</div>
+<script>
+
+	let form = document.getElementById("myForm");
+	
+	form.onsubmit = function(event) {
+	
+		event.preventDefault();
+		
+		let value = document.getElementById("nameInput").value;
+		document.getElementById("result").innerHTML = "You entered: " + value;
+	
+	};
+
+</script>
+</body>
+</html>

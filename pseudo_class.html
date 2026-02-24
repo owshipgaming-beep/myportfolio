@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Pseudo-Classes and Animation</title>
+    <style>
+        body {
+            background-color: #1e1e2f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Box styling */
+        #name {
+            border: 2px solid #00bcd4;
+            text-align: center;
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            color: #00bcd4;
+            font-size: 20px;
+            animation: moveBox 5s infinite alternate ease-in-out;
+            transition: 0.3s;
+        }
+
+        /* Hover effect */
+        #name:hover {
+            background-color: #00bcd4;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Movement animation */
+        @keyframes moveBox {
+            0%   { transform: translateX(0); }
+            50%  { transform: translateX(200px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <div id="name">
+        <p>Edmon Gutlay</p>
+    </div>
+</body>
+</html>
+

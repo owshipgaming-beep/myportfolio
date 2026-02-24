@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Combinators</title>
+    <style>
+        /* Any <p> that follows a <div> will have a yellow background */
+        div ~ p {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Combinators</h1>
+
+    <div>
+        <p>Paragraph 1</p>
+        <p class="para2">Paragraph 2</p>
+        <section>
+            <p>Other paragraph</p>
+        </section>
+    </div>
+
+    <p id="para3">Paragraph 3</p>
+</body>
+</html>

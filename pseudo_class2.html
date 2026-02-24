@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Pseudo-Classes</title>
+    <style>
+        /* When input is focused */
+        input:focus {
+            background-color: #4a90e2;  /* Soft blue */
+            color: white;
+            outline: none;
+            border: 2px solid #357ABD;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Basic styling for input */
+        input[type="text"] {
+            padding: 8px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Form styling */
+        form {
+            margin: 50px;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="Name">Edmon:</label>
+        <input type="text" id="Name" name="Name" />
+    </form>
+</body>
+</html>

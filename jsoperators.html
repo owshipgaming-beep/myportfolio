@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Operators</title>
+</head>
+<body>
+
+    <p id="exp"></p>
+    <p id="exp2"></p>
+    <p id="ans3"></p>
+    <p id="b"></p>
+    <p id="c"></p>
+    <p id="ans4"></p>
+    <p id="ans5"></p>
+    <p id="ans6"></p>
+
+<script>
+
+    let a = 2;
+    let ans = a ** 2;
+    let ans2 = Math.pow(a, 3);
+
+    document.getElementById("exp").innerHTML = ans;
+    document.getElementById("exp2").innerHTML = ans2;
+
+    let b = 10;
+    let c = 10;
+
+    let ans3 = 5 % 2;
+    document.getElementById("ans3").innerHTML = ans3;
+
+    b++;
+    document.getElementById("b").innerHTML = b;
+
+    c--;
+    document.getElementById("c").innerHTML = c;
+
+    b += 5;
+    document.getElementById("ans4").innerHTML = b;
+
+    let age = 12;
+    let d = (age <= 18);
+    let ans4text = d && "Teenager";
+    document.getElementById("ans4").innerHTML = ans4text;
+
+    let e = false;
+    let ans5 = e || 13;
+    document.getElementById("ans5").innerHTML = ans5;
+
+    let f;
+    let ans6 = f ?? 9;
+    document.getElementById("ans6").innerHTML = ans6;
+
+</script>
+
+</body>
+</html>

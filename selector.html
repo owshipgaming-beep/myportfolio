@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Selector</title>
+    <style>
+        body {
+            background-color: #1e1e2f;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Paragraph 1 - orange */
+        p {
+            color: #ff9800;
+            text-shadow: 1px 1px 3px black;
+        }
+
+        /* Paragraph 2 - teal */
+        p.para2 {
+            color: #00bfa5;
+            text-shadow: 1px 1px 3px black;
+        }
+
+        /* Paragraph 3 - light blue */
+        #para3 {
+            color: #64b5f6;
+            text-shadow: 1px 1px 3px black;
+        }
+
+        /* Heading - bright pink */
+        h1 {
+            color: #ff4081;
+            text-shadow: 2px 2px 4px black;
+        }
+
+        /* Fade-in animation */
+        p, h1 {
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Selectors</h1>
+    <p>Paragraph 1</p>
+    <p class="para2">Paragraph 2</p>
+    <p id="para3">Paragraph 3</p>
+</body>
+</html>

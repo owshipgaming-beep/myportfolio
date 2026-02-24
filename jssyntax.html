@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Syntax</title>
+</head>
+<body>
+
+<p id="demo"></p>
+<p id="sum"></p>
+<p id="sum2"></p>
+<p id="sum3"></p>
+<p id="sum4"></p>
+<p id="sum5"></p>
+<p id="sum6"></p>
+
+<script>
+
+let x = 5;
+let y = 6;
+let z = x + y;
+
+document.getElementById("demo").innerHTML =
+"The value of x is " + x + ", the value of y is " + y + ", and the result is " + z + ".";
+
+let a = 5;
+let b = 4;
+let c = 1;
+let d = 3;
+let e = 2;
+
+let sum = a + b - c * d / e;
+document.getElementById("sum").innerHTML = sum;
+
+let sum2 = a - b / c * d + e;
+document.getElementById("sum2").innerHTML = sum2;
+
+let sum3 = a / b - c * d + e;
+document.getElementById("sum3").innerHTML = sum3;
+
+let sum4 = a / b - c * d + e;
+document.getElementById("sum4").innerHTML = sum4;
+
+let sum5 = a * b / (c - d) + c;
+document.getElementById("sum5").innerHTML = sum5;
+
+let sum6 = a * b / (c - d) + c;
+document.getElementById("sum6").innerHTML = sum6;
+
+</script>
+
+</body>
+</html>

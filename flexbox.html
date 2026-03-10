@@ -1,61 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CSS Flexbox - Rainbow Colors</title>
+<title>CSS Flexbox</title>
 <style>
-body {
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-}
-
-h1 {
-    margin-top: 30px;
-}
-
 .names {
     display: flex;
+    background-color: #E37383;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-    margin-top: 30px;
 }
 
 .names div {
+    background-color: lightpink;
     margin: 10px;
     padding: 20px;
     font-size: 24px;
     width: 100px;
     text-align: center;
-    color: white;
-    font-weight: bold;
-    border-radius: 8px;
 }
-
-/* Rainbow colors */
-.names div:nth-child(1) { background-color: red; }
-.names div:nth-child(2) { background-color: orange; }
-.names div:nth-child(3) { background-color: yellow; color: black; } /* darker text for visibility */
-.names div:nth-child(4) { background-color: green; }
-.names div:nth-child(5) { background-color: blue; }
-/* Optional additional colors
-.names div:nth-child(6) { background-color: indigo; }
-.names div:nth-child(7) { background-color: violet; }
-*/
 </style>
 </head>
 <body>
-<h1>CSS Flexbox - Rainbow Colors</h1>
+<h1>CSS Flexbox</h1>
 <div class="names">
-    <div>KING</div>
-    <div>JAIME</div>
     <div>ALEX</div>
-    <div>TOBI</div>
+    <div>JAIME</div>
+    <div>KING</div>
     <div>KARL</div>
+    <div>TOBI</div>
 </div>
 </body>
 </html>
-
-

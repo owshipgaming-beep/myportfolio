@@ -578,7 +578,10 @@ h3 {
   font-size: 2rem; color: var(--text-muted);
 }
 
-/* ── LIGHTBOX ──────────────────────────────── */
+/* ══════════════════════════════════════════
+   LIGHTBOX OVERLAY - Messenger-style
+   ══════════════════════════════════════════ */
+
 .lightbox-overlay {
   position: fixed;
   top: 0;
@@ -660,7 +663,6 @@ h3 {
 .lightbox-close:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-
 /* ── BUTTON ─────────────────────────────────── */
 .btn {
   display: inline-flex; align-items: center; gap: 10px;

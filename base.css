@@ -580,44 +580,86 @@ h3 {
 
 /* ── LIGHTBOX ──────────────────────────────── */
 .lightbox-overlay {
-  position: fixed; inset: 0;
-  background: rgba(8, 6, 2, 0.96);
-  z-index: 999;
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.3s;
-  backdrop-filter: blur(8px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-.lightbox-overlay.active { opacity: 1; pointer-events: all; }
+
+.lightbox-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* THE IMAGE - Centered like Messenger */
 .lightbox-img {
-  max-width: 86vw; max-height: 86vh;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
   object-fit: contain;
-  border-radius: var(--radius-sm);
-  box-shadow: 0 0 80px rgba(232,87,26,0.15), 0 24px 80px rgba(0,0,0,0.9);
-  border: 1px solid var(--border-warm);
+  border-radius: 4px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
-.lightbox-close {
-  position: absolute; top: 24px; right: 24px;
-  background: var(--bg-card); border: 1px solid var(--border-warm);
-  color: var(--text-primary);
-  width: 40px; height: 40px; border-radius: 50%;
-  font-size: 1.1rem; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: var(--transition);
-}
-.lightbox-close:hover { background: var(--orange); border-color: var(--orange); }
+
+/* Navigation Buttons */
 .lightbox-nav {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  background: var(--bg-card); border: 1px solid var(--border-warm);
-  color: var(--text-primary);
-  width: 46px; height: 46px; border-radius: 50%;
-  font-size: 1.2rem; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: var(--transition);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  z-index: 10001;
 }
-.lightbox-nav:hover { background: var(--orange); border-color: var(--orange); }
-.lightbox-prev { left: 24px; }
-.lightbox-next { right: 24px; }
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
+}
+
+/* Close Button */
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  z-index: 10001;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
 
 /* ── BUTTON ─────────────────────────────────── */
 .btn {

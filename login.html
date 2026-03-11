@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — Edmon Portfolio</title>
+  <link rel="stylesheet" href="base.css">
+  <style>
+    /* ── LOGIN-SPECIFIC STYLES ─────────────── */
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+
+    .login-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Split layout */
+    .login-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 920px;
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,94,26,0.08);
+    }
+
+    /* ── LEFT — branding side ────────────────── */
+    .login-brand {
+      background: var(--bg-surface);
+      padding: 52px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      border-right: 1px solid var(--border);
+    }
+
+    /* Large court circle behind content */
+    .login-brand::before {
+      content: '';
+      position: absolute;
+      bottom: -120px; left: -120px;
+      width: 420px; height: 420px;
+      border: 1.5px solid var(--court-line);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .login-brand::after {
+      content: '';
+      position: absolute;
+      bottom: -220px; left: -220px;
+      width: 620px; height: 620px;
+      border: 1px solid rgba(245,232,208,0.035);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .brand-top { position: relative; z-index: 1; }
+
+    .brand-logo {
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      color: var(--text-primary);
+      letter-spacing: 0.06em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .brand-logo span { color: var(--accent); }
+
+    .brand-tagline {
+      font-family: var(--font-condensed);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* Ghost big number */
+    .brand-number {
+      position: absolute;
+      top: 16px; right: -10px;
+      font-family: var(--font-display);
+      font-size: 10rem;
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(255,94,26,0.1);
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .brand-bottom { position: relative; z-index: 1; }
+
+    .brand-quote {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--text-primary);
+      line-height: 1.1;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .brand-quote span { color: var(--accent); }
+
+    .brand-sub {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .brand-dots {
+      display: flex;
+      gap: 6px;
+      margin-top: 20px;
+    }
+    .brand-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+    .brand-dot.active {
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(255,94,26,0.5);
+    }
+
+    /* ── RIGHT — form side ──────────────────── */
+    .login-form-side {
+      padding: 52px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .form-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .form-eyebrow::before {
+      content: '';
+      display: block;
+      width: 20px; height: 1.5px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .form-title {
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      color: var(--text-primary);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      line-height: 1;
+    }
+    .form-title span { color: var(--accent); }
+
+    /* Input group */
+    .input-group {
+      margin-bottom: 20px;
+    }
+    .input-label {
+      font-family: var(--font-condensed);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .input-wrap {
+      position: relative;
+    }
+    .input-icon {
+      position: absolute;
+      left: 14px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 1rem;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+    .form-input {
+      width: 100%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      padding: 13px 14px 13px 42px;
+      outline: none;
+      transition: var(--transition);
+    }
+    .form-input::placeholder { color: var(--text-muted); }
+    .form-input:focus {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+      box-shadow: 0 0 0 3px rgba(255,94,26,0.12);
+    }
+
+    /* Password toggle */
+    .toggle-pw {
+      position: absolute;
+      right: 14px; top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-family: var(--font-condensed);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: var(--transition);
+      padding: 0;
+    }
+    .toggle-pw:hover { color: var(--accent); }
+
+    /* Remember + Forgot row */
+    .form-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+    .remember-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .remember-label input[type="checkbox"] {
+      accent-color: var(--accent);
+      width: 15px; height: 15px;
+    }
+    .remember-label span {
+      font-family: var(--font-condensed);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+    }
+    .forgot-link {
+      font-family: var(--font-condensed);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      transition: var(--transition);
+    }
+    .forgot-link:hover { color: var(--accent); }
+
+    /* Submit button */
+    .btn-login {
+      width: 100%;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-condensed);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 15px 28px;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(255,94,26,0.4);
+    }
+    .btn-login::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: left 0.5s ease;
+    }
+    .btn-login:hover {
+      background: var(--accent-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(255,94,26,0.55);
+    }
+    .btn-login:hover::before { left: 100%; }
+    .btn-login:active { transform: translateY(0); }
+
+    /* Divider */
+    .or-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 22px 0;
+    }
+    .or-divider::before,
+    .or-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .or-divider span {
+      font-family: var(--font-condensed);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* Guest button */
+    .btn-guest {
+      width: 100%;
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-condensed);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 13px 28px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+      display: block;
+      text-decoration: none;
+    }
+    .btn-guest:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    /* Error / success message */
+    .form-message {
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-family: var(--font-condensed);
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
+      display: none;
+    }
+    .form-message.error {
+      display: block;
+      background: rgba(255,59,59,0.1);
+      border: 1px solid var(--danger);
+      color: var(--danger);
+    }
+    .form-message.success {
+      display: block;
+      background: rgba(0,220,130,0.1);
+      border: 1px solid #00dc82;
+      color: #00dc82;
+    }
+
+    /* Loading spinner on button */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner {
+      display: inline-block;
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────── */
+    @media (max-width: 680px) {
+      .login-panel { grid-template-columns: 1fr; }
+      .login-brand { display: none; }
+      .login-form-side { padding: 36px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="homepage.html" class="nav-logo">
+        EG<span class="dot">.</span>
+        <span class="num">// PORTFOLIO</span>
+      </a>
+      <a href="homepage.html" class="nav-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Home
+      </a>
+    </div>
+  </nav>
+
+  <!-- LOGIN -->
+  <div class="login-wrapper">
+    <div class="login-panel anim-fade-up">
+
+      <!-- LEFT — Branding -->
+      <div class="login-brand">
+        <div class="brand-top">
+          <div class="brand-logo">EG<span>.</span></div>
+          <div class="brand-tagline">// Night Court Portfolio</div>
+        </div>
+
+        <div class="brand-number">7</div>
+
+        <div class="brand-bottom">
+          <div class="brand-quote">
+            HARD WORK<br>
+            <span>BEATS</span><br>
+            TALENT
+          </div>
+          <p class="brand-sub">
+            Born to compete. Raised by sacrifice.<br>
+            Every rep, every run — for family.
+          </p>
+          <div class="brand-dots">
+            <div class="brand-dot active"></div>
+            <div class="brand-dot"></div>
+            <div class="brand-dot"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT — Form -->
+      <div class="login-form-side">
+        <p class="form-eyebrow">PLAYER ACCESS</p>
+        <h2 class="form-title">SIGN<br><span>IN</span></h2>
+
+        <!-- Message area -->
+        <div class="form-message" id="formMessage"></div>
+
+        <div class="input-group">
+          <label class="input-label" for="username">Username</label>
+          <div class="input-wrap">
+            <span class="input-icon">👤</span>
+            <input
+              class="form-input"
+              type="text"
+              id="username"
+              placeholder="Enter your username"
+              autocomplete="username"
+            >
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="password">Password</label>
+          <div class="input-wrap">
+            <span class="input-icon">🔒</span>
+            <input
+              class="form-input"
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+            >
+            <button class="toggle-pw" type="button" id="togglePw">Show</button>
+          </div>
+        </div>
+
+        <div class="form-meta">
+          <label class="remember-label">
+            <input type="checkbox" id="rememberMe">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <button class="btn-login" id="loginBtn" type="button">
+          Enter the Court
+        </button>
+
+        <div class="or-divider"><span>or</span></div>
+
+        <a href="homepage.html" class="btn-guest">
+          Continue as Guest 👀
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>© 2025 Edmon Gutlay · Night Court Portfolio</p>
+  </footer>
+
+  <script src="base.js"></script>
+  <script>
+    /* ── TOGGLE PASSWORD ────────────────────── */
+    const pwInput  = document.getElementById('password');
+    const togglePw = document.getElementById('togglePw');
+
+    togglePw.addEventListener('click', () => {
+      const isHidden = pwInput.type === 'password';
+      pwInput.type = isHidden ? 'text' : 'password';
+      togglePw.textContent = isHidden ? 'Hide' : 'Show';
+    });
+
+    /* ── LOGIN LOGIC ────────────────────────── */
+    const DEMO_USER = 'edmon';
+    const DEMO_PASS = 'basketball7';
+
+    const loginBtn   = document.getElementById('loginBtn');
+    const msgBox     = document.getElementById('formMessage');
+    const userInput  = document.getElementById('username');
+
+    function showMessage(text, type) {
+      msgBox.textContent = text;
+      msgBox.className = `form-message ${type}`;
+    }
+
+    function setLoading(loading) {
+      loginBtn.disabled = loading;
+      loginBtn.innerHTML = loading
+        ? '<span class="spinner"></span> Signing in...'
+        : 'Enter the Court';
+    }
+
+    async function handleLogin() {
+      const user = userInput.value.trim();
+      const pass = pwInput.value;
+
+      msgBox.className = 'form-message'; // hide
+
+      if (!user || !pass) {
+        showMessage('⚡ Both fields are required.', 'error');
+        return;
+      }
+
+      setLoading(true);
+
+      // Simulated async auth (replace with real API call if needed)
+      await new Promise(r => setTimeout(r, 1100));
+
+      if (user === DEMO_USER && pass === DEMO_PASS) {
+        showMessage('✔ Welcome back, Edmon! Taking you to the court…', 'success');
+        setTimeout(() => { window.location.href = 'homepage.html'; }, 1400);
+      } else {
+        setLoading(false);
+        showMessage('✘ Incorrect username or password. Try: edmon / basketball7', 'error');
+        pwInput.value = '';
+        pwInput.focus();
+      }
+    }
+
+    loginBtn.addEventListener('click', handleLogin);
+
+    // Allow Enter key from either field
+    [userInput, pwInput].forEach(el => {
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter') handleLogin();
+      });
+    });
+
+    /* ── BRAND DOT CYCLE (cosmetic) ─────────── */
+    const dots = document.querySelectorAll('.brand-dot');
+    let active = 0;
+    setInterval(() => {
+      dots.forEach(d => d.classList.remove('active'));
+      active = (active + 1) % dots.length;
+      dots[active].classList.add('active');
+    }, 2200);
+  </script>
+</body>
+</html>
